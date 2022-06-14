@@ -16,11 +16,7 @@ from kivy.graphics import Color, Rectangle
 animales = os.listdir("video")
 
 Window.size = (1200, 700)
-before:
-    Rectangle:
-        pos: self.pos
-        size: self.size
-        source: 'lights.png'
+ 
 
 class Animacion(Widget):
     pass

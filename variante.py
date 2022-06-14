@@ -13,7 +13,7 @@ from kivy.lang import Builder
 animales = os.listdir("video")
 
 a = Builder.load_string('''
-<BattleField>
+<Cuadro>
     BoxLayout:
         orientation: 'vertical'
 
@@ -46,6 +46,7 @@ class MainApp(App):
         #Clock.schedule_interval(animated_icon.on_touch_down, 0.01)
 
         posicion = [(200, 150), (800, 150), (200, 350), (800, 350)]
+        # creamos los rangos en pixeles donde pueden aparecer los animales
         
         #self.r = Rectangle(texture=animated_icon.texture, size=(250, 250), pos=appear_target(self))
         #Clock.schedule_interval(self.r.appear_target, 1)
