@@ -12,40 +12,6 @@ from kivy.lang import Builder
 from kivy.config import Config
 import random, time, os
 
-animales = os.listdir("video")
-
-a = Builder.load_string(f'''
-<Target>
-    Image:
-        source: 'video/{random.choice(animales)}'
-        size: 200, 200
-        anim_delay: 1/20
-        pos: ({random.randint(200, 960)}, {random.randint(150, 350)})
-        id: animal
-
-    Image:
-        source: 'video/{random.choice(animales)}'
-        size: 200, 200
-        anim_delay: 1/20
-        pos: ({random.randint(200, 960)}, {random.randint(150, 350)})
-        id: animal
-
-    Image:
-        source: 'video/{random.choice(animales)}'
-        size: 200, 200
-        anim_delay: 1/20
-        pos: ({random.randint(200, 960)}, {random.randint(150, 350)})
-        id: animal
-
-    Image:
-        source: 'video/{random.choice(animales)}'
-        size: 200, 200
-        anim_delay: 1/20
-        pos: ({random.randint(200, 960)}, {random.randint(150, 350)})
-        id: animal
-
-''')
-
 class Dibujar(Widget):
 
     def __init__(self, **kwargs):
