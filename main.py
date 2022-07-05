@@ -10,7 +10,7 @@ from kivy.uix.label import Label
 from kivy.graphics import Rectangle
 from kivy.lang import Builder
 from kivy.config import Config
-import random, time, os
+import random
 
 class Dibujar(Widget):
 
@@ -20,15 +20,51 @@ class Dibujar(Widget):
         #self.ids.animal.reload()
 
     def appear_target(self, *args):
-        target = Target()
+        animales = [Elefante(), Gallina(), Gato(), Leon(), Oveja(), Perro()]
+        target = random.choice(animales)
         self.add_widget(target)
 
-class Target(Widget):
+class Elefante(Widget):
 
-    def on_touch_move(self, touch):
+    def on_touch_down(self, touch):
         self.parent.remove_widget(self)
-        return Dibujar()
+        animales = [Elefante(), Gallina(), Gato(), Leon(), Oveja(), Perro()]
+        return Dibujar.appear_target(random.choice(animales))
 
+class Gallina(Widget):
+
+    def on_touch_down(self, touch):
+        self.parent.remove_widget(self)
+        animales = [Elefante(), Gallina(), Gato(), Leon(), Oveja(), Perro()]
+        return Dibujar.appear_target(random.choice(animales))
+
+class Gato(Widget):
+
+    def on_touch_down(self, touch):
+        self.parent.remove_widget(self)
+        animales = [Elefante(), Gallina(), Gato(), Leon(), Oveja(), Perro()]
+        return Dibujar.appear_target(random.choice(animales))
+
+class Leon(Widget):
+
+    def on_touch_down(self, touch):
+        self.parent.remove_widget(self)
+        animales = [Elefante(), Gallina(), Gato(), Leon(), Oveja(), Perro()]
+        return Dibujar.appear_target(random.choice(animales))      
+
+class Oveja(Widget):
+
+    def on_touch_down(self, touch):
+        self.parent.remove_widget(self)
+        animales = [Elefante(), Gallina(), Gato(), Leon(), Oveja(), Perro()]
+        return Dibujar.appear_target(random.choice(animales))  
+
+class Perro(Widget):
+
+    def on_touch_down(self, touch):
+        self.parent.remove_widget(self)
+        animales = [Elefante(), Gallina(), Gato(), Leon(), Oveja(), Perro()]
+        return Dibujar.appear_target(random.choice(animales))
 
 class AnimalesApp(App):
 
