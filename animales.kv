@@ -1,10 +1,11 @@
 #:kivy 2.1.0
 #:import random random
 
-<AnimalMaster@Image>:
+<AnimalMaster@ButtonBehavior+Image>:
+    on_press: self.parent.callback()
     size: 200, 200
     anim_delay: 1/20
-    pos: random.randint(250, 1000), random.randint(200, 500)
+    pos: random.randint(50, 950), random.randint(50, 450)
 
 <Elefante>:
     AnimalMaster:
