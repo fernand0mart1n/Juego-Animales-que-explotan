@@ -20,7 +20,7 @@ class Dibujar(Widget):
 
     def __init__(self, **kwargs):
         super(Dibujar, self).__init__(**kwargs)
-        Clock.schedule_interval(self.appear_target, 1.5)
+        Clock.schedule_interval(self.appear_target, random.randint(2, 4))
         #Clock.schedule_once(self.appear_target, random.randint(2, 4))
 
     def appear_target(self, *args):
@@ -31,32 +31,32 @@ class Dibujar(Widget):
 class Elefante(Widget):
     
     def callback(self):
-        self.ids.animal1.opacity = 0
+        self.parent.remove_widget(self)
     
 class Gallina(Widget):
 
     def callback(self):
-        self.ids.animal2.opacity = 0
+        self.parent.remove_widget(self)
     
 class Gato(Widget):
 
     def callback(self):
-        self.ids.animal3.opacity = 0
+        self.parent.remove_widget(self)
     
 class Leon(Widget):
 
     def callback(self):
-        self.ids.animal4.opacity = 0
+        self.parent.remove_widget(self)
     
 class Oveja(Widget):
 
     def callback(self):
-        self.ids.animal5.opacity = 0
+        self.parent.remove_widget(self)
     
 class Perro(Widget):
 
     def callback(self):
-        self.ids.animal6.opacity = 0
+        self.parent.remove_widget(self)
     
 class AnimalesApp(App):
 
