@@ -1,8 +1,5 @@
 from kivy.config import Config
 
-Config.set('graphics', 'width', '1200')
-Config.set('graphics', 'height', '700')
-
 from kivy.app import App
 from kivy.clock import Clock
 from kivy.core.text import LabelBase
@@ -24,37 +21,9 @@ class Dibujar(Widget):
         #Clock.schedule_once(self.appear_target, random.randint(2, 4))
 
     def appear_target(self, *args):
-        animales = [Elefante(), Gallina(), Gato(), Leon(), Oveja(), Perro()]
-        target = random.choice(animales)
-        self.add_widget(target)
+        self.add_widget(Animal())  
 
-class Elefante(Widget):
-    
-    def callback(self):
-        self.parent.remove_widget(self)
-    
-class Gallina(Widget):
-
-    def callback(self):
-        self.parent.remove_widget(self)
-    
-class Gato(Widget):
-
-    def callback(self):
-        self.parent.remove_widget(self)
-    
-class Leon(Widget):
-
-    def callback(self):
-        self.parent.remove_widget(self)
-    
-class Oveja(Widget):
-
-    def callback(self):
-        self.parent.remove_widget(self)
-    
-class Perro(Widget):
-
+class Animal(Widget):
     def callback(self):
         self.parent.remove_widget(self)
     
@@ -64,4 +33,7 @@ class AnimalesApp(App):
         return Dibujar()
 
 if __name__ == '__main__':
+    Config.set('graphics', 'fullscreen', '2')
+    Config.set('graphics', 'window_state', 'maximized')
+    Config.write()
     AnimalesApp().run()

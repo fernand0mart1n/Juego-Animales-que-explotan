@@ -1,5 +1,6 @@
 #:kivy 2.1.0
 #:import random random
+#:import os os
 
 <AnimalMaster@ButtonBehavior+Image>:
     on_press: self.parent.callback()
@@ -7,27 +8,6 @@
     anim_delay: 1/20
     pos: random.randint(50, 950), random.randint(50, 450)
 
-<Elefante>:
+<Animal>:
     AnimalMaster:
-        id: animal1
-        source: "video/elefante.zip"
-<Gallina>:
-    AnimalMaster:
-        id: animal2
-        source: "video/gallina.zip"
-<Gato>:
-    AnimalMaster:
-        id: animal3
-        source: "video/gato.zip"
-<Leon>:
-    AnimalMaster:
-        id: animal4
-        source: "video/leon.zip"
-<Oveja>:
-    AnimalMaster:
-        id: animal5
-        source: "video/oveja.zip"
-<Perro>:
-    AnimalMaster:
-        id: animal6
-        source: "video/perro.zip"
+        source: 'video/'+random.choice(os.listdir("video"))
