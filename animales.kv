@@ -2,12 +2,14 @@
 #:import random random
 #:import os os
 
-<AnimalMaster@ButtonBehavior+Image>:
-    on_press: self.parent.callback()
-    size: 200, 200
-    anim_delay: 1/20
+<AnimalMaster@ButtonBehavior+HoverBehavior+Image>:
+    on_enter: self.parent.callback()
+    size: 140, 140
+    anim_delay: 1/17
     pos: random.randint(50, 950), random.randint(50, 450)
 
 <Animal>:
     AnimalMaster:
-        source: 'video/'+random.choice(os.listdir("video"))
+        source: 'video/' + random.choice(os.listdir("video"))
+        #audio: self.source.split('.')[0]
+        id: animal
