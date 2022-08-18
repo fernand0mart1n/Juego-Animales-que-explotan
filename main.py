@@ -5,7 +5,6 @@ from kivy.core.window import Window
 from kivy.uix.widget import Widget
 from kivy.uix.image import Image
 from kivy.uix.label import Label
-from kivy.uix.behaviors import ButtonBehavior
 from kivy.graphics import Rectangle
 from kivy.core.audio import SoundLoader
 from kivy.lang import Builder
