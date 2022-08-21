@@ -4,9 +4,10 @@
 
 <AnimalMaster@HoverBehavior+Image>:
     on_enter: self.parent.callback()
-    size: 140, 140
-    anim_delay: 1/17
-    pos: random.randint(50, 950), random.randint(50, 450)
+    size: app.TAMANO_IMAGENES, app.TAMANO_IMAGENES
+    anim_delay: app.VELOCIDAD_ANIMACION
+    #pos: random.randint(50, 950), random.randint(50, 450)
+    pos: random.randint(app.TAMANO_IMAGENES, app.MARGEN_ANCHO), random.randint(app.TAMANO_IMAGENES, app.MARGEN_ALTO)
 
 <Animal>:
     AnimalMaster:
