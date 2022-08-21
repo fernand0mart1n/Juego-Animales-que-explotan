@@ -54,8 +54,8 @@ class AnimalesApp(App):
 
     TAMANO_IMAGENES = Window.width * 0.1
     VELOCIDAD_ANIMACION = 1/17
-    MARGEN_ANCHO = Window.width - TAMANO_IMAGENES
-    MARGEN_ALTO = Window.height - TAMANO_IMAGENES
+    MARGEN_ANCHO = Window.width - Window.width*0.15
+    MARGEN_ALTO = Window.height - Window.height*0.15
 
     def build(self):
         
