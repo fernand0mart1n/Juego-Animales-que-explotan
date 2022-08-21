@@ -1,3 +1,4 @@
+from turtle import Screen
 from kivy.app import App
 from kivy.clock import Clock
 from kivy.core.text import LabelBase
@@ -7,35 +8,52 @@ from kivy.uix.image import Image
 from kivy.uix.label import Label
 from kivy.graphics import Rectangle
 from kivy.core.audio import SoundLoader
+from kivy.properties import StringProperty, ObjectProperty
 from kivy.lang import Builder
 from kivy.config import Config
 import HoverBehavior
 import random
 import os
 
+ANIMALES = os.listdir("video")
+
 class Dibujar(Widget):
+
+    sound = ObjectProperty(None, allownone=True)
 
     def __init__(self, **kwargs):
         super(Dibujar, self).__init__(**kwargs)
 
+        self.play_song('snd/musica.mp3')
+
         Clock.schedule_interval(self.appear_target, 3)
-        sound = SoundLoader.load('snd/musica.mp3')
-        sound.loop = True
-        sound.play()
-        #Clock.schedule_once(self.appear_target, 3)
 
     def appear_target(self, *args):
-        
+
+        nombre_animal = random.choice(ANIMALES).split('.')[0]
         animal = Animal()
+        animal.fuente = 'video/' + nombre_animal + '.zip'
         self.add_widget(animal)
-        #nombre_animal = animal.audio.split('.')[0]
-        #sonido = SoundLoader.load('snd/' + nombre_animal + '.wav')
-        #sonido.play()
+        animal.sound = SoundLoader.load('snd/' + nombre_animal + '.wav')
+        animal.sound.play()
+
+    def play_song(self, path_cancion):
+        song_path = path_cancion
+        if self.sound:
+            self.sound.stop()
+        self.sound = SoundLoader.load(song_path)
+        if self.sound:
+            self.sound.loop = True
+            self.sound.play()
 
 class Animal(Widget):
 
+    fuente = StringProperty()
+    sound = ObjectProperty(None, allownone=True)
+
     def callback(self):
         self.parent.remove_widget(self)
+        self.sound.stop()
     
 class AnimalesApp(App):
 
