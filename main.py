@@ -10,6 +10,8 @@ import HoverBehavior
 import random
 import os
 
+Window.clearcolor = '#394352'
+
 ANIMALES = os.listdir("video")
 
 class Dibujar(Widget):
