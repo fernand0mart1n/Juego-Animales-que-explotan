@@ -16,7 +16,7 @@ gameDisplay = pygame.display.set_mode((infoPantalla.current_w,infoPantalla.curre
 
 mixer.init()
 mixer.music.load('snd/musica.mp3')
-mixer.music.play()
+pygame.mixer.music.play(-1,0.0)
 
 TITULO = 'ANIMALES QUE DESAPARECEN'
 corriendo = True
@@ -92,7 +92,7 @@ class Juego:
                 self.huvoColision()
         self.spriteActual.mostrar(self.spriteActual.posX, self.spriteActual.posY, self.frameActual)
         self.spriteActual.playSND(True)
-        pygame.draw.rect(gameDisplay, (200,200,200,50), self.boundingBox,1)  #si necesitamos ver el boundigbox
+        #pygame.draw.rect(gameDisplay, (200,200,200,50), self.boundingBox,1) si necesitamos ver el boundigbox
         gameDisplay.blit (self.txtEscape,(infoPantalla.current_w/2-self.txtEscape.get_size()[0]/2,infoPantalla.current_h-30))  
         # muestra texto Esc
         pygame.display.update()
