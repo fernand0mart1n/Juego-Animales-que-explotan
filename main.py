@@ -17,7 +17,6 @@ gameDisplay = pygame.display.set_mode((infoPantalla.current_w,infoPantalla.curre
 mixer.init()
 mixer.music.load('snd/musica.mp3')
 mixer.music.play()
- 
 
 TITULO = 'ANIMALES QUE DESAPARECEN'
 corriendo = True
