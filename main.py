@@ -28,7 +28,7 @@ gato=Sprite("img/gato_sprite.png","snd/gato.wav",400,9)
 gallina=Sprite("img/gallina_sprite.png","snd/gallo.wav",400,9)
 elefante=Sprite("img/elefante_sprite.png","snd/elefante.wav",400,9)
 explosion=Sprite("img/explosion_sprite.png","snd/explosion.wav",400,10)
-animales = (perro,oveja,leon,gallina,elefante)
+animales = (perro,oveja,leon,gallina,gato,elefante)
 
 # FER: AL FINAL PASA TODO DENTRO DE ESTA CLASE, ME PARECE QUE ES AL PEDO QUE ESTÉ, HACE QUE TODAS LAS VARIABLES TENGAN "self."
 # Y ES MUY FEO LEERLO, QUIZA LO MEJOR EN ESTE CASO SACAR TODO FUERA Y USAR VARIABLES GLOBALES O PASAR PARAMETROS A LAS 
