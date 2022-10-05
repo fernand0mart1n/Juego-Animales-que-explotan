@@ -1,0 +1,14 @@
+#:kivy 2.1.0
+#:import random random
+#:import os os
+
+<AnimalMaster@HoverBehavior+Image>:
+    on_enter: self.parent.callback(self.pos)
+    size: app.TAMANO_IMAGENES, app.TAMANO_IMAGENES
+    anim_delay: app.VELOCIDAD_ANIMACION
+
+<Animal>:
+    AnimalMaster:
+        source: root.fuente
+        pos: root.posX, root.posY
+        id: animal

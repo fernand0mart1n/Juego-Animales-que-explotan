@@ -4,40 +4,19 @@
 # ojo que no copia las carpetas con otros archivos, mover manualmente a "dist"
 
 import pygame
-from config import * # FER: SACAR LO QUE HAY AHI Y PONERLO EN ESTE MOODULO MAIN PORQUE LO QUE QUEDO ES UN CHISTE
 import random
 
 pygame.init()
 
+from globales import infoPantalla, gameDisplay
+from sprite import Sprite as Sprite_animado
 
-# FER: QUIZA QUEDE MEJOR PASAR ESTA CLASE A OTRO ARCHIVO (MODULO)
-class Sprite_animado:
-
-    def __init__(self,archivoIMG, archivoSND,anchoFrame,cantFrames): 
-        # archivoIMG = ruta del sprite o tira de frames
-        # archivoSND = ruta del archivo de audio
-        #a nchoFrame = ancho de un frame
-        # cantFrame = cuantos frames tiene la tira
-        self.imagen = pygame.image.load(archivoIMG).convert_alpha()
-        self.ancho, self.alto = self.imagen.get_size()
-        self.anchoFrame = anchoFrame
-        self.cantFrames = cantFrames
-        self.sonido = pygame.mixer.Sound(archivoSND)
-        self.posX , self.posY = (300,300)
-    
-    def mostrar(self,x,y,frame): 
-        gameDisplay.blit(self.imagen, (x,y),(self.anchoFrame*frame,0,self.anchoFrame,self.alto))   #el ultimo parentisis es el recorte x_inicial,y_inicial,ancho,alto
-	
-    def playSND (self,reproducir):
-        if not pygame.mixer.get_busy() and reproducir:
-            self.sonido.play()
-        elif pygame.mixer.get_busy() and not reproducir:
-            self.sonido.fadeout(300)
 
 # FER: AL FINAL PASA TODO DENTRO DE ESTA CLASE, ME PARECE QUE ES AL PEDO QUE ESTÉ, HACE QUE TODAS LAS VARIABLES TENGAN "self."
 #       Y ES MUY FEO LEERLO, QUIZA LO MEJOR EN ESTE CASO SACAR TODO FUERA Y USAR VARIABLES GLOBALES O PASAR PARAMETROS A LAS FUNCIONES
 #       SI USAS GLOBALES ACORDATE QUE PYTHON LEE LAS GLOBALES DENTRO DE UNA FUNCIÓN PERO PARA ESCRIBIRLAS HAY QUE DECLARLAS DENTRO COMO "Global nombreVariable"
 class Juego:
+
     def __init__(self):
         self.corriendo = True
         self.perro=Sprite_animado("img/perro_sprite.png","snd/perro.wav",400,9)
@@ -93,6 +72,8 @@ class Juego:
             self.frameActual = 0
 
     def render_loop(self):
+        global gameDisplay
+        global infoPantalla
         gameDisplay.fill((57,67,82))
         if self.frameActual < self.spriteActual.cantFrames-1:
             self.frameActual +=1
@@ -116,13 +97,9 @@ class Juego:
 
 # TAMPOCO ME PARECE QUE SE JUSTIFICA ESTO PARA LO QUE QUEDO ACÁ, ME PARECE QUE TODO EL PROGRAMA QUEDARIA MAS CLARO COMO UN EN ESTE CASO SCRIPT
 
-if __name__ == "__main__" :
-    clock = pygame.time.Clock()
-    infoPantalla = pygame.display.Info()
-    print (infoPantalla)
-    gameDisplay = pygame.display.set_mode((infoPantalla.current_w,infoPantalla.current_h),pygame.FULLSCREEN)    #,pygame.RESIZABLE ,pygame.FULLSCREEN
-    pygame.display.set_caption(TITULO)
-    miJuego = Juego()
-    miJuego.ejecutar()
-    pygame.quit()
-    quit()
+
+clock = pygame.time.Clock()
+miJuego = Juego()
+miJuego.ejecutar()
+pygame.quit()
+quit()
