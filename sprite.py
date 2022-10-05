@@ -1,6 +1,6 @@
 import pygame
 from globales import infoPantalla, gameDisplay
-
+pygame.init()
 
 class Sprite:
     def __init__(self,archivoIMG, archivoSND,anchoFrame,cantFrames): 
