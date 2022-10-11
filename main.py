@@ -3,6 +3,8 @@
 # pyinstaller --onefile <your_script_name>.py
 # ojo que no copia las carpetas con otros archivos, mover manualmente a "dist"
 
+# pantalla como global, display como argumento a la clase
+
 import pygame
 import random
 from pygame import mixer
@@ -13,9 +15,9 @@ pygame.init()
 from globales import infoPantalla, gameDisplay
 from sprite import Sprite as Sprite_animado
 
-
 mixer.init()
 mixer.music.load('snd/musica.mp3')
+mixer.music.set_volume(0.1)
 pygame.mixer.music.play(-1,0.0)
 
 TITULO = 'ANIMALES QUE DESAPARECEN'
@@ -93,7 +95,7 @@ class Juego:
             if self.explotando:                             # si terminó de reproducir el sprite de explosion..
                 self.explotando= False
                 self.huvoColision()
-        self.spriteActual.mostrar(self.spriteActual.posX, self.spriteActual.posY, self.frameActual)
+        self.spriteActual.mostrar(self.spriteActual.posX, self.spriteActual.posY, self.frameActual, gameDisplay)
         self.spriteActual.playSND(True)
         #pygame.draw.rect(gameDisplay, (200,200,200,50), self.boundingBox,1) si necesitamos ver el boundigbox
         gameDisplay.blit (self.txtEscape,(infoPantalla.current_w/2-self.txtEscape.get_size()[0]/2,infoPantalla.current_h-30))  
