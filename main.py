@@ -17,10 +17,9 @@ from sprite import Sprite as Sprite_animado
 
 mixer.init()
 mixer.music.load('snd/musica.mp3')
-mixer.music.set_volume(0.1)
+mixer.music.set_volume(0.05)
 pygame.mixer.music.play(-1,0.0)
 
-TITULO = 'ANIMALES QUE DESAPARECEN'
 corriendo = True
 perro=Sprite("img/perro_sprite.png","snd/perro.wav",400,9)
 oveja=Sprite("img/oveja_sprite.png","snd/oveja.wav",400,9)
